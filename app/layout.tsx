@@ -1,6 +1,8 @@
+import "./globals.css";
+
+import { Open_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
@@ -23,7 +25,7 @@ export default function RootLayout({
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem={false}
+            enableSystem={true}
             storageKey="discord-theme"
           >
             {children}
