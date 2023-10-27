@@ -31,16 +31,15 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
+  const down = (e: KeyboardEvent) => {
+    if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      setOpen((open) => !open);
+    }
+  };
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-      console.log(down);
-      document.addEventListener("keydown", down);
-      return () => document.removeEventListener("keydown", down);
-    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   const onClick = ({
